@@ -94,7 +94,7 @@
     # Use an ignore file
     trivy image --ignorefile .trivyignore nginx:latest
     ```
-2.**Generating Reports** : Trivy can generate reports in various formats like JSON, HTML, and SARIF for integration with other tools.
+2. **Generating Reports** : Trivy can generate reports in various formats like JSON, HTML, and SARIF for integration with other tools.
     ```
     # Generate a JSON report
     trivy image --format json -o report.json nginx:latest
