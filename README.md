@@ -10,7 +10,7 @@
 - Secret Detection: Finds hardcoded secrets in source code repositories.
 
 ## Installation 
-1. Linux (Ubuntu/Debian)
+1. **Linux (Ubuntu/Debian)** :
     ```
     sudo apt-get update
     sudo apt-get install wget apt-transport-https gnupg lsb-release -y
@@ -20,15 +20,13 @@
     sudo apt-get install trivy
     ```
 
-2. Using Trivy Docker Image
-- If Docker is installed, you can use Trivy without installing it directly on the host machine:
+2. **Using Trivy Docker Image** : If Docker is installed, you can use Trivy without installing it directly on the host machine:
 
     ```
     docker run --rm -v /var/run/docker.sock:/var/run/docker.sock aquasec/trivy image <image-name>
     ```
 
-3. Installation via Binary
-- Download the binary (replace v0.44.0 with the latest version)
+3. **Installation via Binary** : Download the binary (replace v0.44.0 with the latest version)
     ```
     wget https://github.com/aquasecurity/trivy/releases/download/v0.44.0/trivy_0.44.0_Linux-64bit.deb
     ```
@@ -40,47 +38,40 @@
 
 ## Basic Trivy Commands
 
-1. Scanning Docker Images
-- Trivy can scan Docker images for vulnerabilities.
+1. **Scanning Docker Images** : Trivy can scan Docker images for vulnerabilities.
     ```
     trivy image <image-name>
     trivy image nginx:latest
     ```
 
-2. Scanning File Systems
-- You can scan local file systems for vulnerabilities, for example, a specific directory:
+2. **Scanning File Systems** : You can scan local file systems for vulnerabilities, for example, a specific directory:
     ```
     trivy fs /path/to/scan
     trivy fs --format table -o trivy-fs-report.html /path/to/scan   # o = Output
     ```
 
-3. Scanning Git Repositories
-- You can also scan a Git repository for vulnerabilities and misconfigurations:
+3. **Scanning Git Repositories** : You can also scan a Git repository for vulnerabilities and misconfigurations:
     ```
     trivy repo https://github.com/aquasecurity/trivy
     ```
 
-4. Scanning Kubernetes Clusters
-- Trivy can also be used to scan running Kubernetes clusters:
+4. **Scanning Kubernetes Clusters** : Trivy can also be used to scan running Kubernetes clusters:
     ```
     trivy k8s cluster
     ```
 
-5. Scanning Infrastructure as Code (IaC)
-- You can scan configuration files like Terraform, CloudFormation, and Kubernetes manifests for security issues:
+5. **Scanning Infrastructure as Code (IaC)** : You can scan configuration files like Terraform, CloudFormation, and Kubernetes manifests for security issues:
     ```
     trivy config /path/to/config
     trivy config ./terraform
     ```
 
-6. Scanning for Secrets
-- Trivy can scan for hardcoded secrets in a directory or code repository:
+6. **Scanning for Secrets** : Trivy can scan for hardcoded secrets in a directory or code repository:
     ```
     trivy fs --security-checks secret /path/to/code
     ```
 
-7. Output Formats
-- Trivy supports different output formats, such as JSON and table format:
+7. **Output Formats** : Trivy supports different output formats, such as JSON and table format:
     ```
     # Output in JSON format
     trivy image --format json -o result.json <image-name>
@@ -89,15 +80,13 @@
     trivy image <image-name>
     ```
 
-8. Excluding Unwanted Vulnerabilities
-- You can exclude certain vulnerabilities using an ignore file:
+8. **Excluding Unwanted Vulnerabilities** : You can exclude certain vulnerabilities using an ignore file:
     ```
     trivy image --ignorefile .trivyignore <image-name>
     ```
 
 ### Advanced Trivy Commands
-1. Ignoring Specific Vulnerabilities
-Sometimes, you might want to ignore certain vulnerabilities. Trivy allows you to do this using the --ignore-unfixed and --ignorefile options.
+1. **Ignoring Specific Vulnerabilities** : Sometimes, you might want to ignore certain vulnerabilities. Trivy allows you to do this using the --ignore-unfixed and --ignorefile options.
     ```
     # Ignore all vulnerabilities that are not fixed
     trivy image --ignore-unfixed nginx:latest
@@ -105,8 +94,7 @@ Sometimes, you might want to ignore certain vulnerabilities. Trivy allows you to
     # Use an ignore file
     trivy image --ignorefile .trivyignore nginx:latest
     ```
-2. Generating Reports
-- Trivy can generate reports in various formats like JSON, HTML, and SARIF for integration with other tools.
+2.**Generating Reports** : Trivy can generate reports in various formats like JSON, HTML, and SARIF for integration with other tools.
     ```
     # Generate a JSON report
     trivy image --format json -o report.json nginx:latest
@@ -117,8 +105,7 @@ Sometimes, you might want to ignore certain vulnerabilities. Trivy allows you to
     # Generate a SARIF report
     trivy image --format sarif -o report.sarif nginx:latest
     ```
-3. Automating Scans in CI/CD Pipelines
-- Trivy is commonly integrated into CI/CD pipelines to automate security scanning. Here a basic example using a Jenkins pipeline:
+3. **Automating Scans in CI/CD Pipelines** : Trivy is commonly integrated into CI/CD pipelines to automate security scanning. Here a basic example using a Jenkins pipeline:
     ```
     stage('Security Scan') {
         steps {
@@ -127,7 +114,7 @@ Sometimes, you might want to ignore certain vulnerabilities. Trivy allows you to
         }
     }
     ```
-4. Integrating Trivy with Jenkins
+4. **Integrating Trivy with Jenkins** :
 - Trivy Installation: Ensure Trivy is installed on your Jenkins server or the agents executing the pipeline.
 - Jenkins Plugins: Ensure necessary plugins like Pipeline, GitHub Integration, etc., are installed.
 
