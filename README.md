@@ -32,6 +32,7 @@ Download the binary (replace v0.44.0 with the latest version)
     ```
     wget https://github.com/aquasecurity/trivy/releases/download/v0.44.0/trivy_0.44.0_Linux-64bit.deb
     ```
+    
 Install the binary
     ```
     sudo dpkg -i trivy_0.44.0_Linux-64bit.deb
@@ -131,8 +132,9 @@ Trivy is commonly integrated into CI/CD pipelines to automate security scanning.
 - Jenkins Plugins: Ensure necessary plugins like Pipeline, GitHub Integration, etc., are installed.
 
 Trivy Image Scan:
--- Scans the built Docker image for high and critical vulnerabilities.
--- The **--exit-code 1** option ensures the build fails if vulnerabilities of specified severity are found.
+- Scans the built Docker image for high and critical vulnerabilities.
+- The **--exit-code 1** option ensures the build fails if vulnerabilities of specified severity are found.
+  
     ```
     stage('Trivy Image Scan') {
         steps {
